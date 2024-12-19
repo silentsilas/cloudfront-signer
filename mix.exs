@@ -5,7 +5,7 @@ defmodule CloudfrontSigner.MixProject do
     [
       app: :cloudfront_signer,
       version: "0.1.0",
-      elixir: "~> 1.6",
+      elixir: "~> 1.17",
       start_permanent: Mix.env() == :prod,
       package: package(),
       description: description(),
@@ -22,9 +22,9 @@ defmodule CloudfrontSigner.MixProject do
 
   defp deps do
     [
-      {:poison, "~> 3.1"},
-      {:timex, "~> 3.1"},
-      {:ex_doc, "~> 0.14", only: :dev}
+      {:poison, "~> 6.0"},
+      {:timex, "~> 3.7"},
+      {:ex_doc, "~> 0.35", only: :dev}
     ]
   end
 
@@ -37,7 +37,7 @@ defmodule CloudfrontSigner.MixProject do
       # These are the default files included in the package
       files: ~w(lib config .formatter.exs mix.exs README* LICENSE*),
       licenses: ["MIT"],
-      links: %{"GitHub" => "https://github.com/Poeticode/cloudfront-signer"}
+      links: %{"GitHub" => "https://github.com/silentsilas/cloudfront-signer"}
     ]
   end
 end

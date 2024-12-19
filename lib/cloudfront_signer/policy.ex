@@ -19,7 +19,7 @@ defmodule CloudfrontSigner.Policy do
       %{
         Statement: [
           %{
-            Resource: resource, 
+            Resource: resource,
             Condition: %{
               DateLessThan: %{
                 "AWS:EpochTime": expiry
