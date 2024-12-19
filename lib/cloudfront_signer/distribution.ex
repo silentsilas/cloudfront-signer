@@ -6,7 +6,7 @@ defmodule CloudfrontSigner.Distribution do
   defstruct [:private_key, :domain, :key_pair_id]
 
   @type t :: %__MODULE__{}
-  
+
   @doc """
   Creates a `Distribution.t` record from the contents of `Application.get_env(app, scope)`
   """
@@ -28,7 +28,7 @@ defmodule CloudfrontSigner.Distribution do
   defp parse_config(_), do: nil
 
   defp read_value({:system, env_var}), do: System.get_env(env_var)
-  defp read_value({:file, file_path}), do: File.read!(file_path)
+  defp read_value({:file, file_path}), do: File.read!(Path.join(File.cwd!(), file_path))
   defp read_value(value) when is_binary(value), do: value
 
   defp decode_pk(%__MODULE__{private_key: pk} = dist) when is_binary(pk) do
@@ -39,5 +39,6 @@ defmodule CloudfrontSigner.Distribution do
       _ -> raise ArgumentError, "Invalid PEM for cloudfront private key"
     end
   end
+
   defp decode_pk(dist), do: dist
 end

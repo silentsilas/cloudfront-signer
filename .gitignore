@@ -23,3 +23,6 @@ erl_crash.dump
 cloudfront_signer-*.tar
 
 .elixir_ls/
+
+private_key.pem
+.envrc
